@@ -335,7 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelID: 0
   levelInfoText: {fileID: 6975465667650997950}
-  stars:
+  starsIndicators:
   - {fileID: 1830857102591293822}
   - {fileID: 7805202355397128976}
   - {fileID: 8371373202467040565}

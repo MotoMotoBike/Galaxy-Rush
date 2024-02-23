@@ -12,7 +12,5 @@ namespace DefaultNamespace
         {
              PlayerPrefs.SetInt($"Level{levelId}Score", score);
         }
-        
-        
     }
 }

@@ -9,6 +9,17 @@ public class AppNavigationTool : MonoBehaviour
     {
         SceneManager.LoadScene(buildIndex);
     }
+    public void ReLoadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private bool isPaused = false;
+    public void Pause()
+    {
+        isPaused = !isPaused;
+        var timeScale = (isPaused == true) ? Time.timeScale = 0 : Time.timeScale = 1;
+    }
 
     public void ExitGame()
     {

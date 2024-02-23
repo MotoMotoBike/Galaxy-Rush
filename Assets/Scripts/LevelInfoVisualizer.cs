@@ -26,6 +26,7 @@ public class LevelInfoVisualizer : MonoBehaviour
         score = GameData.GetScoreByLevelID(levelID);
         FillLevelInfoText();
         UpdateAccesToButton();
+        ShowLevelStars();
     }
 
     
@@ -40,7 +41,7 @@ public class LevelInfoVisualizer : MonoBehaviour
     {
         button.enabled = false;
         enabledImage.sprite = disabledSprite;
-        if (levelID == 1 || score > 0)
+        if (levelID == 1 || score > 0 || GameData.GetScoreByLevelID(levelID - 1) > 0)
         {
             enabledImage.sprite = enabledSprite;
             button.enabled = true;
@@ -48,13 +49,13 @@ public class LevelInfoVisualizer : MonoBehaviour
     }
     void ShowLevelStars()
     {
-        if (score > 100)
+        if (score > 200)
         {
             starsIndicators[0].SetActive(true);
-        }if (score > 200)
+        }if (score > 300)
         {
             starsIndicators[1].SetActive(true);
-        }if (score > 300)
+        }if (score > 400)
         {
             starsIndicators[2].SetActive(true);
         }

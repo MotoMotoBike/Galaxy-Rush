@@ -1,52 +1,25 @@
-namespace DefaultNamespace
+
+using UnityEngine;
+
+public class MoveAtDirection : MonoBehaviour
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using Unity.VisualScripting;
-    using UnityEngine;
+    [SerializeField] Vector2 direction;
+    [SerializeField] float lifeTime;
+    float _currentLifeTime;
+    private Rigidbody2D _rigidbody;
 
-    public class MoveAtDirection : MonoBehaviour
+    private void Start()
     {
-        [SerializeField] private float speed;
-        [SerializeField] Direction direction;
-        [SerializeField] float lifeTime;
-        [SerializeField] bool accelerate;
-        float currentLifeTime = 0;
+        _rigidbody = GetComponent<Rigidbody2D>();
+        MovePosition();
+    }
 
-        void ConfigureSpeed(float speed)
-        {
-            this.speed = speed;
-        }
+    void Update()
+    {
+    }
 
-        private void Start()
-        {
-            
-        }
-
-        void Update()
-        {
-            ChekLifeTime();
-            MovePosition();
-        }
-    
-        void MovePosition()
-        {
-            transform.position += (direction == Direction.Up ? Vector3.up : Vector3.down) * (speed * Time.deltaTime);
-        }
-
-        void ChekLifeTime()
-        {
-            currentLifeTime += Time.deltaTime;
-            if (currentLifeTime >= lifeTime)
-            {
-                Destroy(gameObject);
-            }
-        }
-
-        public enum Direction
-        {
-            Up, Down
-        }
+    void MovePosition()
+    {
+        _rigidbody.velocity = direction;
     }
 }

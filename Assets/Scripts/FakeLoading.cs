@@ -1,7 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Networking;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -15,7 +12,6 @@ namespace DefaultNamespace
 
         private void Awake()
         {
-
             panel.SetActive(true);
         }
         
